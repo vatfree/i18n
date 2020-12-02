@@ -16,7 +16,7 @@ Npm.depends({
 Package.onUse(function (api) {
   api.versionsFrom('1.6');
 
-  api.use('coffeescript', both);
+  api.use('coffeescript@1.0.11', both);
   api.use('underscore', both);
   api.use('meteor', both);
 
@@ -26,7 +26,7 @@ Package.onUse(function (api) {
   api.use('tracker', both);
   api.use('session', client);
   api.use('jquery', client);
-  api.use('templating', client);
+  api.use('templating@1.3.2', client);
 
   api.use('cfs:http-methods@0.0.27', server);
 
@@ -56,7 +56,7 @@ Package.onUse(function (api) {
 
 Package.registerBuildPlugin({
   name: 'tap-i18n-compiler',
-  use: ['coffeescript', 'underscore', 'check', 'templating'],
+  use: ['coffeescript@1.0.11', 'underscore', 'check@1.3.1', 'templating@1.3.2'],
   npmDependencies: {
     "node-json-minify": "1.0.0",
     "simpl-schema": "1.10.2",
