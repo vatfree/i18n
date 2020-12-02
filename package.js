@@ -59,6 +59,7 @@ Package.registerBuildPlugin({
   use: ['coffeescript', 'underscore', 'check', 'templating'],
   npmDependencies: {
     "node-json-minify": "1.0.0",
+    "simpl-schema": "1.10.2",
     "yamljs": "0.3.0"
   },
   sources: [
