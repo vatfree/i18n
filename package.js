@@ -1,8 +1,8 @@
 Package.describe({
-  name: 'tap:i18n',
+  name: 'vatfree:i18n',
   summary: 'A comprehensive internationalization solution for Meteor',
   version: '1.8.1',
-  git: 'https://github.com/TAPevents/tap-i18n'
+  git: 'https://github.com/vatfree/i18n'
 });
 
 both = ['server', 'client'];
@@ -10,7 +10,7 @@ server = 'server';
 client = 'client';
 
 Package.onUse(function (api) {
-  api.versionsFrom('0.9.4');
+  api.versionsFrom('1.6');
 
   api.use('coffeescript', both);
   api.use('underscore', both);
@@ -52,10 +52,10 @@ Package.onUse(function (api) {
 
 Package.registerBuildPlugin({
   name: 'tap-i18n-compiler',
-  use: ['coffeescript', 'underscore', 'aldeed:simple-schema@1.3.0', 'check@1.0.3', 'templating'],
+  use: ['coffeescript', 'underscore', 'check', 'templating'],
   npmDependencies: {
-    "node-json-minify": "0.1.3-a",
-    "yamljs": "0.2.4"
+    "node-json-minify": "1.0.0",
+    "yamljs": "0.3.0"
   },
   sources: [
     'lib/globals.js',

@@ -1,6 +1,7 @@
 helpers = share.helpers
 compilers = share.compilers
 compiler_configuration = share.compiler_configuration
+SimpleSchema = Npm.require 'simpl-schema'
 
 share.project_i18n_schema = schema = new SimpleSchema
   helper_name:
@@ -9,20 +10,24 @@ share.project_i18n_schema = schema = new SimpleSchema
     label: "Helper Name"
     optional: true
   supported_languages:
-    type: [String]
+    type: Array
     label: "Supported Languages"
     defaultValue: null
     optional: true
+  'supported_languages.$':
+    type: String
   i18n_files_route:
     type: String
     label: "Unified languages files path"
     defaultValue: globals.browser_path
     optional: true
   preloaded_langs:
-    type: [String]
+    type: Array
     label: "Preload languages"
     defaultValue: []
     optional: true
+  'preloaded_langs.$':
+    type: String
   cdn_path:
     type: String
     label: "Unified languages files path on CDN"
@@ -79,10 +84,10 @@ compilers.project_tap_i18n = (compileStep) ->
   schema.clean project_tap_i18n
 
   try
-    check project_tap_i18n, schema
+    schema.validate project_tap_i18n
   catch error
     compileStep.error
-      message: "File `#{file_path}' is an invalid project-tap.i18n file (#{error})",
+      message: "File `#{input_path}' is an invalid project-tap.i18n file (#{error})",
       sourcePath: input_path
     return
 
