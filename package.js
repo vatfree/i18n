@@ -9,6 +9,10 @@ both = ['server', 'client'];
 server = 'server';
 client = 'client';
 
+Npm.depends({
+  "simpl-schema": "1.10.2"
+});
+
 Package.onUse(function (api) {
   api.versionsFrom('1.6');
 
